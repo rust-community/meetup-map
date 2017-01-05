@@ -15,45 +15,31 @@ function create_map() {
   window.L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="http://osm.org/copyright" title="OpenStreetMap" target="_blank">OpenStreetMap</a> contributors'
   }).addTo(window.map);
-  add_speakers();
+  add_meetups();
 }
 
-function add_speakers() {
-  window.fetch('speakers.json')
-          .then(function (response) {
-            return response.json();
-          }).
-          then(function (json) {
-            json = json.speakers;
-            console.log(json.length + ' Speakers loaded');
-            document.querySelector('.counter').innerHTML = json.length + ' ';
-            for (var i = 0; i < json.length; ++i) {
-              //add marker
-              var popup = '<img src="' + get_gravatar_image_url(json[i].gravatar) + '" />';
-              popup += '<br>' + json[i].country + '<br>';
-              popup += '<a href="' + json[i].url + '" target="_blank">' + json[i].name + '</a>';
-              window.L.marker([json[i].lat, json[i].lng])
-                      .bindPopup(popup)
-                      .addTo(window.map);
-              //populate list
-              var rowCount = window.table.rows.length;
-              var row = window.table.insertRow(rowCount);
-              var cell1 = row.insertCell(0);
-              cell1.innerHTML = '<a href="' + json[i].url + '" target="_blank">' + json[i].name + '</a>';
-              var cell2 = row.insertCell(1);
-              cell2.innerHTML = json[i].country;
-            }
-            document.querySelector('#list thead td').click();
-          });
-}
-
-//from http://jsfiddle.net/xanderiel/Tvnq7/4/
-function get_gravatar_image_url(email, size, default_image, allowed_rating, force_default) {
-  email = typeof email !== 'undefined' ? email : 'john.doe@example.com';
-  size = (size >= 1 && size <= 2048) ? size : 80;
-  default_image = typeof default_image !== 'undefined' ? default_image : 'mm';
-  allowed_rating = typeof allowed_rating !== 'undefined' ? allowed_rating : 'x';
-  force_default = force_default === true ? 'y' : 'n';
-
-  return ("https://secure.gravatar.com/avatar/" + md5(email.toLowerCase().trim()) + "?size=" + size + "&default=" + encodeURIComponent(default_image) + "&rating=" + allowed_rating + (force_default === 'y' ? "&forcedefault=" + force_default : ''));
+function add_meetups() {
+  window.fetch('meetups.json')
+  .then(function (response) {
+    return response.json();
+  }).then(function (json) {
+    var meetups = json.meetups;
+    document.querySelector('.counter').innerHTML = meetups.length + ' ';
+    for (var i = 0; i < meetups.length; ++i) {
+      //add marker
+      var popup = '<a href="' + meetups[i].url + '" target="_blank">' + meetups[i].name + '</a>';
+      popup += '<br>' + meetups[i].location;
+      window.L.marker([meetups[i].lat, meetups[i].lng])
+      .bindPopup(popup)
+      .addTo(window.map);
+      //populate list
+      var rowCount = window.table.rows.length;
+      var row = window.table.insertRow(rowCount);
+      var cell1 = row.insertCell(0);
+      cell1.innerHTML = '<a href="' + meetups[i].url + '" target="_blank">' + meetups[i].name + '</a>';
+      var cell2 = row.insertCell(1);
+      cell2.innerHTML = meetups[i].location;
+    }
+    document.querySelector('#list thead td').click();
+  });
 }
