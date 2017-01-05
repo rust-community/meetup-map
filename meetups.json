@@ -34,7 +34,6 @@
 { "name":"San Diego Rust", "url":"https://www.meetup.com/San-Diego-Rust/", "location":"San Diego, CA", "lat":32.7174209,"lng":-117.1627713},
 { "name":"Rust Barcelona", "url":"https://www.meetup.com/Rust-Barcelona/", "location":"Barcelona, Spain", "lat":41.3825596,"lng":2.1771353},
 { "name":"Boston Embedded Systems Meetup", "url":"https://www.meetup.com/Boston-Embedded-Systems-Meetup/", "location":"Cambridge, MA", "lat":42.3750997,"lng":-71.1056156},
-{ "name":"Rust New York City", "url":"https://www.meetup.com/RustNY/", "location":"New York, NY", "lat":40.7305991,"lng":-73.9865811},
 { "name":"Rust DC", "url":"https://www.meetup.com/RustDC/", "location":"Washington, DC", "lat":38.8949549,"lng":-77.0366455},
 { "name":"De-Central Budapest", "url":"https://www.meetup.com/De-Central-Budapest/", "location":"Budapest, Hungary", "lat":47.4983815,"lng":19.0404707},
 { "name":"Rust Detroit", "url":"https://www.meetup.com/rust-detroit/", "location":"Detroit, MI", "lat":42.3486635,"lng":-83.0567374},
