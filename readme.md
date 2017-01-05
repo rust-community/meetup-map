@@ -1,40 +1,13 @@
-#Tech Speakers Map
+# Rust meetups around the world
 
-##RoadMap
+A map of Rust meetups around the world.
+Initial data fetched from [Meetup.com's list of Rust meetups](https://www.meetup.com/topics/rust/all/).
+Based on the [Tech Speakers Map](https://mte90.github.io/Tech-Speakers-Map/) by [Mte90](https://github.com/Mte90).
 
-* Searchable name by input search
+## How to use
 
-##Add your name
+The initial data import is done by a small web scraper.
+It is not yet published or documented. This will follow.
 
-###Pull Request Way
-
-* Create/Sign in into github account. (you can jump to step 4 or take them one by one)
-* Go to https://github.com/Mte90/Tech-Speakers-Map
-* Choose the file `speakers.json` - https://github.com/Mte90/Tech-Speakers-Map/blob/gh-pages/speakers.json 
-* Tap the pencil icon - near the history button - at the top of ther file **OR** https://github.com/Mte90/Tech-Speakers-Map/edit/gh-pages/speakers.json 
-* Add your dates in a similar form as those already entered between `},{` or copy this:  
-```            
-,{
-      "name": "FirstName LastName", 
-      "url": "https://mozillians.org/en-US/u/YourID",
-      "gravatar": "youremail@domain.tld",
-      "country": "yourCountry",
-      "lat": 00,
-      "lng": 00
-}
-```
-* Add at the end of file
-* Now you need to create a new Pull Request, go to https://github.com/Mte90/Tech-Speakers-Map/pulls
-* Click on New Pull Request
-* Click on Compare across forks
-* On Head fork search your fork (YourNickOnGitHub/Tech-Speakers-Map/)
-* Click on create Pull Request
-* Done!
-
-###Issue/Ticket Way
-
-* Create/Sign in into github account. 
-* Go to https://github.com/Mte90/Tech-Speakers-Map
-* Tap the Issues button from left side panel
-* Tap the green "New Issue" button
-* Add your data (gravatar email, mozillians profile url, latitude, longitude and country)
+There's currently no process of adding new meetups (as we might want to scrape meetup.com automatically from time to time).
+With the current format it is possible to add non-Meetup.com meetups as well.
